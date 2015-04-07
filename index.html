@@ -5,7 +5,14 @@
   <style>
   body {
     background-color: #f0db4f;
-    font-family: Helvetica, arial, sans-serif;
+    font-family: 'Lucida Grande', arial, sans-serif;
+  }
+  a {
+    color: rgba(0,0,0,0.6);
+    transition: color 300ms ease-in-out;
+  }
+  a:hover {
+    color: rgba(0,0,0,1);
   }
   div.box {
     text-align: center;
@@ -15,6 +22,7 @@
   }
   img.logo {
     margin: 10px 0;
+    width: 600px;
     max-width: 100%;
     height: auto;
   }
@@ -22,7 +30,6 @@
   .content-box {
     max-width: 600px;
     margin: 1em auto;
-    text-align: left;
   }
 
   .content-box p {
@@ -31,6 +38,7 @@
   }
 
   form { 
+    display: none;
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -47,6 +55,11 @@
     width: calc(100% - 85px);
   }
   button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  button[name="subscribe"] {
     text-transform: uppercase;
     background-color: rgba(255,255,255,0.9);
     color: #000;
@@ -56,10 +69,44 @@
     float: right;
     font-size: 24px;
     font-weight: bold;
-    cursor: pointer;
     width: 80px;
     font-family: "Courier New", "Courier", monospaced;
   }
+
+  .button-set {
+    overflow: hidden;
+    padding: 1em 0;
+  }
+
+  a.button.action {
+    display: block;
+    width: 47.5%;
+    margin-right: 5%;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    background-color: black;
+    color: #fff;
+    padding: 1.5em 0;
+    position: relative;
+    /*transition: all 250ms ease-in-out;*/
+  }
+  a.button.action:last-child {
+    margin-right: 0;
+  }
+  a.button.action:hover {
+    /*background-color: #F7CE29;
+    color: #000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);*/
+    top: -2px;
+  }
+  a.button.action:active {
+    top: 5px;
+  }
+
   div.mce_inline_error { display: none !important; }
   input.mce_inline_error { border-color: red; }
   </style>
@@ -71,7 +118,13 @@
   <a href="http://www.meetup.com/charmCityJs" style="display: block; margin-bottom:2em;"><img class="omgyay" src="images/omgyay.gif" alt="OMG YAY!" /></a>
 
   <div class="content-box">
-    <p>We're Baltimore's JavaScript Meetup and we want to hang out with you. RSVP to our first Wednesday events at <a href="http://www.meetup.com/charmcityjs/">our meetup page</a> and <a href="https://github.com/charmcityjs/talks">submit your talk ideas</a>, too.</p>
+    <p>We're Baltimore's JavaScript Meetup and we want to hang out with you. <a href="http://www.meetup.com/charmcityjs/">RSVP to our First Wednesday meetups</a> and <a href="https://github.com/charmcityjs/talks">submit your talk ideas</a>, too!</p>
+    <p>First event is Wednesday, May 6th. Don't miss it!</p>
+
+    <div class="button-set">
+      <a class="button action" href="http://www.meetup.com/charmcityjs/">RSVP for upcoming events</a>
+      <a class="button action" href="https://github.com/charmcityjs/talks">Submit a talk idea</a>
+    </div>
   </div>
 
   <!-- Begin MailChimp Signup Form -->
