@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>charmCityJS</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="box">
-  <img class="logo" src="images/charmCityJS-1200x200.png" alt="charm city JS logo" />
-
-  <p><em>Join our Slack team, for fun and stuff: </em></p>
-  <script async defer src="http://charmcityjs.herokuapp.com/slackin.js?large"></script>
-  <p></p>
-
-  <a href="http://www.meetup.com/charmCityJs" style="display: block; margin-bottom:2em;"><img class="omgyay" src="http://45.media.tumblr.com/ac243bf640b808c6fbef79df9de364a4/tumblr_ny47gcL05G1uikjs1o1_500.gif" alt="OMG YAY!" style="max-width: 100%; height: auto;" /></a>
-
-  <div class="content-box">
-    <p>We're Baltimore's JavaScript Meetup and we want to hang out with you*. <a href="http://www.meetup.com/charmcityjs/">RSVP to our First Wednesday meetups</a> and <a href="https://github.com/charmcityjs/talks">submit your talk ideas</a>, too!</p>
-
-    <p><small>*We really do want to hang out with you, but we've also got <a href="http://www.meetup.com/charmcityjs/pages/charmCityJS_Anti-Harassment_Policy/">a code of conduct</a> that's really important to us, so please make sure you read and follow it if you want to hang out too.</small></p>
-
-    <div class="button-set">
-      <a class="button action" href="http://www.meetup.com/charmcityjs/">RSVP for upcoming events</a>
-      <a class="button action" href="https://github.com/charmcityjs/talks">Submit a talk idea</a>
+  <head>
+    <title>charmCityJS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container center">
+      <header role="banner">
+        <a href="/">
+          <img class="logo responsive-image" src="images/charmCityJS-1200x200.png" alt="charm city JS logo" />
+        </a>
+      </header>
+      <nav role="navigation">
+        <ul id="primary-navigation">
+          <li>
+            <a class="button action" href="http://www.meetup.com/charmcityjs/">RSVP for upcoming events</a>
+          </li>
+          <li>
+            <a class="button action" href="https://github.com/charmcityjs/talks">Submit a talk idea</a>
+          </li>
+          <li>
+            <a class="button action" href="/code-of-conduct.html">Code of Conduct</a>
+          </li>
+        </ul>
+      </nav>
+      <main>
+        <section>
+          <p>
+            <em>Join our Slack team, for fun and stuff:</em>
+          </p>
+          <div>
+            <script async defer src="http://charmcityjs.herokuapp.com/slackin.js?large"></script>
+          </div>
+          <a href="http://www.meetup.com/charmCityJs">
+            <img class="omgyay responsive" src="http://45.media.tumblr.com/ac243bf640b808c6fbef79df9de364a4/tumblr_ny47gcL05G1uikjs1o1_500.gif" alt="OMG YAY!" style="max-width: 100%; height: auto;" />
+          </a>
+          <div class="content-box">
+            <p>
+              We're Baltimore's JavaScript Meetup and we want to hang out with you*. <a href="">RSVP to our First Wednesday meetups</a> and <a href="https://github.com/charmcityjs/talks">submit your talk ideas</a>, too!
+            </p>
+            <p>
+              <small>
+              *We really do want to hang out with you, but we've also got <a href="http://www.meetup.com/charmcityjs/pages/charmCityJS_Anti-Harassment_Policy/">a code of conduct</a> that's really important to us, so please make sure you read and follow it if you want to hang out too.
+              </small>
+            </p>
+          </div>
+        </section>
+      </main>
+      <footer class="our-sponsors">
+        <h3>Our Sponsors</h3>
+        <div class="sponsor-images">
+          <a href="https://sparkpost.com">
+            <img class="responsive-image" src="images/sponsors/sparkpost-logo_whitebg-a100_bordered_120x70.png" alt="SparkPost" />
+          </a>
+          <a href="http://tenon.io">
+            <img class="responsive-image" src="images/sponsors/tenonio.jpeg" alt="Tenon.io" />
+          </a>
+          <a href="http://advertising.com">
+            <img class="responsive-image" src="images/sponsors/ad.com.jpeg" alt="Advertising.com" />
+          </a>
+        </div>
+      </footer>
     </div>
-
-    <div class="our-sponsors">
-      <h3>Our Sponsors</h3>
-      <table width=100%>
-        <tr>
-          <td width="33%"><a href="https://sparkpost.com"><img src="images/sponsors/sparkpost-logo_whitebg-a100_bordered_120x70.png" alt="SparkPost" /></a></td>
-          <td width="33%"><a href="http://tenon.io"><img src="images/sponsors/tenonio.jpeg" alt="Tenon.io" /></a></td>
-          <td width="33%"><a href="http://advertising.com"><img src="images/sponsors/ad.com.jpeg" alt="Advertising.com" /></a></td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-61654219-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-</body>
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-61654219-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+  </body>
 </html>
