@@ -43,11 +43,15 @@ img.logo {
 }
 
 .content-box {
+  padding: 0 0.5rem;
+}
+
+.center-box {
   max-width: 600px;
   margin: auto;
 }
 
-.content-box p {
+.center-box p {
   font-size: 16px;
   line-height: 1.4;
 }
@@ -135,11 +139,14 @@ button[name="subscribe"] {
   font-size: 14px;
   font-weight: bold;
   margin: 0.2rem;
-  padding: 1em;
+  padding: 0;
 }
 
 #primary-navigation a {
   color: #FFF;
+  display: block;
+  height: 100%;
+  padding: 1em;
   text-decoration: none;
 }
 
