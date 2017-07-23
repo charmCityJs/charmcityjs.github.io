@@ -3,9 +3,21 @@
 }
 
 body {
-  background-color: #f0db4f;
-  font-family: 'Lucida Grande', arial, sans-serif;
+  background-color: RGBA(241, 239, 229, 1.00);
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 100%;
 }
+
+h1 {
+  font-size: 2.2em;
+  margin: 1.5em 0 0.5em;
+}
+
+p {
+  font-size: 1.4em;
+  line-height: 1.4;
+}
+
 a {
   color: rgba(0,0,0,0.6);
   transition: color 300ms ease-in-out;
@@ -16,8 +28,8 @@ a:hover {
 }
 
 .container {
-  max-width: 100%;
-  width: 800px;
+  width: 100%;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -52,7 +64,7 @@ img.logo {
 }
 
 .center-box p {
-  font-size: 16px;
+  font-size: 22px;
   line-height: 1.4;
 }
 
@@ -95,6 +107,28 @@ button[name="subscribe"] {
   font-family: "Courier New", "Courier", monospaced;
 }
 
+section.organizers .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+section.organizers figure {
+  margin: 0 0 3em;
+  text-align: center;
+  max-width: 47.5%;
+}
+
+section.organizers figure img {
+  max-width: 100%;
+}
+
+section.organizers figcaption {
+  display: block;
+  font-size: 24px;
+  margin-top: 0.5em;
+}
+
 #primary-navigation, .sponsor-images {
   display: -webkit-box;
   display: -webkit-flex;
@@ -119,6 +153,10 @@ button[name="subscribe"] {
   text-align: center;
 }
 
+footer {
+  padding-bottom: 10em;
+}
+
 @media only screen and (min-width : 768px) {
 
   #primary-navigation, .sponsor-images {
@@ -128,6 +166,15 @@ button[name="subscribe"] {
     -ms-flex-direction: row;
     flex-direction: row;
   }
+
+}
+
+@media only screen and (min-width: 500px) {
+
+  section.organizers figure {
+    max-width: 31%;
+  }
+
 }
 
 #primary-navigation li {
@@ -135,7 +182,6 @@ button[name="subscribe"] {
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  background: #000;
   font-size: 14px;
   font-weight: bold;
   margin: 0.2rem;
@@ -143,6 +189,9 @@ button[name="subscribe"] {
 }
 
 #primary-navigation a {
+  background: RGBA(0, 0, 0, 0.8);
+  transition: background 250ms ease-in-out;
+  font-weight: 100;
   color: #FFF;
   display: block;
   height: 100%;
@@ -151,7 +200,7 @@ button[name="subscribe"] {
 }
 
 #primary-navigation a:hover {
-  text-decoration: underline;
+  background-color: black;
 }
 
 .our-sponsors {
@@ -196,14 +245,14 @@ input.mce_inline_error { border-color: red; }
 }
 
 /* Utility Selectors */
-.center {
+.text-center {
   text-align: center;
 }
 
-.left {
+.text-left {
   text-align: left;
 }
 
-.right {
+.text-right {
   text-align: right;
 }
