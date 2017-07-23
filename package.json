@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "CCJS website repo",
   "main": "index.js",
-  "dependencies": {
-    "autoprefixer": "^7.1.2",
-    "postcss-cli": "^4.1.0"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
