@@ -1,0 +1,160 @@
+html {
+  /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+  /* Step -2: 12.5px → 12.8px */
+  --step--2: clamp(0.7813rem, 0.7747rem + 0.0326cqi, 0.8rem);
+  /* Step -1: 15px → 16px */
+  --step--1: clamp(0.9375rem, 0.9158rem + 0.1087cqi, 1rem);
+  /* Step 0: 18px → 20px */
+  --step-0: clamp(1.125rem, 1.0815rem + 0.2174cqi, 1.25rem);
+  /* Step 1: 21.6px → 25px */
+  --step-1: clamp(1.35rem, 1.2761rem + 0.3696cqi, 1.5625rem);
+  /* Step 2: 25.92px → 31.25px */
+  --step-2: clamp(1.62rem, 1.5041rem + 0.5793cqi, 1.9531rem);
+  /* Step 3: 31.104px → 39.0625px */
+  --step-3: clamp(1.944rem, 1.771rem + 0.8651cqi, 2.4414rem);
+  /* Step 4: 37.3248px → 48.8281px */
+  --step-4: clamp(2.3328rem, 2.0827rem + 1.2504cqi, 3.0518rem);
+  /* Step 5: 44.7898px → 61.0352px */
+  --step-5: clamp(2.7994rem, 2.4462rem + 1.7658cqi, 3.8147rem);
+
+  /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+  /* Space 3xs: 5px → 5px */
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0cqi, 0.3125rem);
+  /* Space 2xs: 9px → 10px */
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087cqi, 0.625rem);
+  /* Space xs: 14px → 15px */
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087cqi, 0.9375rem);
+  /* Space s: 18px → 20px */
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174cqi, 1.25rem);
+  /* Space m: 27px → 30px */
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261cqi, 1.875rem);
+  /* Space l: 36px → 40px */
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348cqi, 2.5rem);
+  /* Space xl: 54px → 60px */
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522cqi, 3.75rem);
+  /* Space 2xl: 72px → 80px */
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696cqi, 5rem);
+  /* Space 3xl: 108px → 120px */
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043cqi, 7.5rem);
+
+  /* One-up pairs */
+  /* Space 3xs-2xs: 5px → 10px */
+  --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435cqi, 0.625rem);
+  /* Space 2xs-xs: 9px → 15px */
+  --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522cqi, 0.9375rem);
+  /* Space xs-s: 14px → 20px */
+  --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522cqi, 1.25rem);
+  /* Space s-m: 18px → 30px */
+  --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043cqi, 1.875rem);
+  /* Space m-l: 27px → 40px */
+  --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413cqi, 2.5rem);
+  /* Space l-xl: 36px → 60px */
+  --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087cqi, 3.75rem);
+  /* Space xl-2xl: 54px → 80px */
+  --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261cqi, 5rem);
+  /* Space 2xl-3xl: 72px → 120px */
+  --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174cqi, 7.5rem);
+
+  /* Custom pairs */
+  /* Space s-l: 18px → 40px */
+  --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913cqi, 2.5rem);
+
+  @media (prefers-color-scheme: light) {
+    --background: rgb(241, 239, 229);
+    --foreground: rgb(0, 0, 0);
+  }
+
+  /* @media (prefers-color-scheme: dark) {
+    --background: rgb(0, 0, 0);
+    --foreground: rgb(241, 239, 229);
+  } */
+
+  scrollbar-gutter: stable;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font: var(--step-0) / 1.5 system-ui;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.1;
+}
+
+.o-wrapper {
+  inline-size: min(
+    100% - var(--wrapper-padding, 2rem),
+    var(--wrapper-size, 100rem)
+  );
+  margin-inline: auto;
+}
+
+.o-wrapper--some {
+  --wrapper-size: 81.25rem;
+}
+
+.o-wrapper--more {
+  --wrapper-size: 68.75rem;
+}
+
+.o-wrapper--most {
+  --wrapper-size: 41.5rem;
+}
+
+.o-wrapper--less {
+  --wrapper-size: 115rem;
+}
+
+.o-wrapper--base {
+  --wrapper-size: 100rem;
+}
+
+/* Create equal spacing between elements in a flow context without setting display */
+.u-flow > *:not(style, script) + *:not(style, script) {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+.u-grid {
+  /**
+   * User input values.
+   */
+  --grid-layout-gap: var(--space-m);
+  --grid-column-count: 4;
+  --grid-item--min-width: 100px;
+
+  /**
+   * Calculated values.
+   */
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc(
+    (100% - var(--total-gap-width)) / var(--grid-column-count)
+  );
+
+  display: grid;
+  gap: var(--grid-layout-gap);
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+  );
+
+  &[data-grid-columns="2"] {
+    --grid-column-count: 2;
+  }
+
+  &[data-grid-columns="3"] {
+    --grid-column-count: 3;
+  }
+
+  &[data-grid-columns="5"] {
+    --grid-column-count: 5;
+  }
+}
