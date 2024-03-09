@@ -4,9 +4,9 @@ title: Home
 description: We're Baltimore's JavaScript community and we want to hang out with you (regular events on the first Wednesday of every month)
 ---
 
-<layout-wrapper>
-  <article id="about-ccjs">
-    <h1>Oh, hey.</h1>
+<layout-wrapper has-content-padding class="flow">
+  <article id="about-ccjs" class="flow prose">
+    <h1>Baltimore's JavaScript Community</h1>
     <div>
       <p>
         We're Baltimore's JavaScript community and we want to hang out with you.
@@ -26,7 +26,7 @@ description: We're Baltimore's JavaScript community and we want to hang out with
     </div>
   </article>
 
-  <article id="organizers">
+  <article id="organizers" class="flow prose">
     <h2>Our Organizers</h2>
     <p>
       Hi, this is what we look like! We love making CCJS run. Find any of us at
@@ -37,6 +37,9 @@ description: We're Baltimore's JavaScript community and we want to hang out with
       {%- for organizer in organizers -%}
       <figure class="organizer">
         <img
+          width="200"
+          height="200"
+          class="fluid"
           src="{{ organizer.avatarSrc }}"
           alt=""
           loading="lazy"
@@ -48,7 +51,7 @@ description: We're Baltimore's JavaScript community and we want to hang out with
     </fluid-grid>
   </article>
 
-  <article id="join">
+  <article id="join" class="flow prose">
     <h2>Join our Slack team</h2>
     <p>click here for an invite ----</p>
     <p>

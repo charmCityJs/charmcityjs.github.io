@@ -2,6 +2,10 @@
 layout: base
 ---
 
-<layout-wrapper size="{{ containerSize or 'default' }}" class="flow prose">
+<layout-wrapper
+  size="{{ containerSize or 'default' }}"
+  class="flow prose"
+  has-content-padding
+>
   {{ content | safe }}
 </layout-wrapper>

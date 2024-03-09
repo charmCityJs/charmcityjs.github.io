@@ -31,69 +31,55 @@
     <meta name="canonical" href="{{ metadata.url }}{{ page.url }}" />
   </head>
   <body>
-    <header class="site-header" id="header">
-      <layout-wrapper size="more">
-        <a class="banner" href="/">
-          <img
-            src="/static/images/ccjs-banner.png"
-            alt="charmCityJs"
-            decoding="async"
-            loading="lazy"
-          />
-        </a>
-        <nav class="primary-navigation" aria-label="primary">
-          <ul role="list">
-            <li>
-              <a href="{{ metadata.meetup }}">Events</a>
-            </li>
-            <li>
-              <a href="{{ metadata.talks }}">Submit a Talk</a>
-            </li>
-            <li>
-              <a href="/code-of-conduct/">Code of Conduct</a>
-            </li>
-          </ul>
-        </nav>
-      </layout-wrapper>
-    </header>
+    <div class="site">
+      <header class="site-header" id="header">
+        <layout-wrapper has-content-padding>
+          <div class="hero">
+            <div class="hero__left">
+              <a href="/" aria-label="CCJS homepage">
+                <img
+                  width="200"
+                  height="200"
+                  src="/static/images/ccjs-logo.png"
+                  alt="CCJS"
+                  decoding="async"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+            <div class="hero__right flow">
+              <div class="ccjs">
+                <span class="font-light">charm<wbr />City</span><wbr />JS
+              </div>
+              <nav class="primary-navigation" aria-label="primary">
+                <ul role="list" class="flow">
+                  <li>
+                    <a
+                      class="button button--outline"
+                      href="{{ metadata.meetup }}"
+                      >Events</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="button button--outline"
+                      href="{{ metadata.talks }}"
+                      >Submit a Talk</a
+                    >
+                  </li>
+                  <li>
+                    <a class="button button--outline" href="/code-of-conduct/"
+                      >Code of Conduct</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </layout-wrapper>
+      </header>
 
-    <main id="main" class="site-container">{{ content | safe }}</main>
-
-    <footer class="site-footer" id="footer">
-      <layout-wrapper size="most">
-        <article id="sponsors">
-          <h2>Our Sponsors</h2>
-          <ul role="list" class="sponsors">
-            <li>
-              <a href="https://sparkpost.com">
-                <img
-                  class="responsive-image"
-                  src="/static/images/sponsors/sparkpost-logo_whitebg-a100_bordered_120x70.png"
-                  alt="SparkPost"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="http://tenon.io">
-                <img
-                  class="responsive-image"
-                  src="/static/images/sponsors/tenonio.jpeg"
-                  alt="Tenon.io"
-                />
-              </a>
-            </li>
-            <li>
-              <a href="http://advertising.com">
-                <img
-                  class="responsive-image"
-                  src="/static/images/sponsors/ad.com.jpeg"
-                  alt="Advertising.com"
-                />
-              </a>
-            </li>
-          </ul>
-        </article>
-      </layout-wrapper>
-    </footer>
+      <main id="main" class="site-container">{{ content | safe }}</main>
+    </div>
   </body>
 </html>
