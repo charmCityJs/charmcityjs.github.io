@@ -6,7 +6,6 @@
 
     <title>{{ metadata.title }} | {{ title | safe }}</title>
 
-    <link href="/static/css/reset.css" rel="stylesheet" />
     <link href="/static/css/style.css" rel="stylesheet" />
 
     {% if description -%}
@@ -32,57 +31,69 @@
     <meta name="canonical" href="{{ metadata.url }}{{ page.url }}" />
   </head>
   <body>
-    <header class="l-header" id="header">
-      <a class="c-banner--linked" href="/">
-        <img
-          src="/static/images/ccjs-banner.png"
-          alt="charmCityJs"
-          decoding="async"
-          loading="lazy"
-        />
-      </a>
-      <nav aria-label="primary">
-        <ul class="c-primary-navigation">
-          <li>
-            <a href="{{ metadata.meetup }}">See Our Events</a>
-          </li>
-          <li>
-            <a href="{{ metadata.talks }}">Submit a Talk</a>
-          </li>
-          <li>
-            <a href="/code-of-conduct/">Code of Conduct</a>
-          </li>
-        </ul>
-      </nav>
+    <header class="site-header" id="header">
+      <layout-wrapper size="more">
+        <a class="banner" href="/">
+          <img
+            src="/static/images/ccjs-banner.png"
+            alt="charmCityJs"
+            decoding="async"
+            loading="lazy"
+          />
+        </a>
+        <nav class="primary-navigation" aria-label="primary">
+          <ul role="list">
+            <li>
+              <a href="{{ metadata.meetup }}">Events</a>
+            </li>
+            <li>
+              <a href="{{ metadata.talks }}">Submit a Talk</a>
+            </li>
+            <li>
+              <a href="/code-of-conduct/">Code of Conduct</a>
+            </li>
+          </ul>
+        </nav>
+      </layout-wrapper>
     </header>
 
-    <main id="main" class="o-container">{{ content | safe }}</main>
+    <main id="main" class="site-container">{{ content | safe }}</main>
 
-    <footer class="l-footer" id="footer">
-      <h2>Our Sponsors</h2>
-      <article id="sponsors">
-        <a href="https://sparkpost.com">
-          <img
-            class="responsive-image"
-            src="/static/images/sponsors/sparkpost-logo_whitebg-a100_bordered_120x70.png"
-            alt="SparkPost"
-          />
-        </a>
-        <a href="http://tenon.io">
-          <img
-            class="responsive-image"
-            src="/static/images/sponsors/tenonio.jpeg"
-            alt="Tenon.io"
-          />
-        </a>
-        <a href="http://advertising.com">
-          <img
-            class="responsive-image"
-            src="/static/images/sponsors/ad.com.jpeg"
-            alt="Advertising.com"
-          />
-        </a>
-      </article>
+    <footer class="site-footer" id="footer">
+      <layout-wrapper size="most">
+        <article id="sponsors">
+          <h2>Our Sponsors</h2>
+          <ul role="list" class="sponsors">
+            <li>
+              <a href="https://sparkpost.com">
+                <img
+                  class="responsive-image"
+                  src="/static/images/sponsors/sparkpost-logo_whitebg-a100_bordered_120x70.png"
+                  alt="SparkPost"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="http://tenon.io">
+                <img
+                  class="responsive-image"
+                  src="/static/images/sponsors/tenonio.jpeg"
+                  alt="Tenon.io"
+                />
+              </a>
+            </li>
+            <li>
+              <a href="http://advertising.com">
+                <img
+                  class="responsive-image"
+                  src="/static/images/sponsors/ad.com.jpeg"
+                  alt="Advertising.com"
+                />
+              </a>
+            </li>
+          </ul>
+        </article>
+      </layout-wrapper>
     </footer>
   </body>
 </html>

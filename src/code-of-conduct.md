@@ -1,10 +1,11 @@
 ---
 layout: page
+containerSize: more
 title: Code of Conduct
 description: Our code of conduct is very important to us so please read carefully.
 ---
 
-{{ title }}
+# {{ title }}
 
 CharmCityJS is dedicated to providing a harassment-free meetup
 experience for everyone, regardless of gender, sexual orientation,

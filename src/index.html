@@ -4,7 +4,7 @@ title: Home
 description: We're Baltimore's JavaScript community and we want to hang out with you (regular events on the first Wednesday of every month)
 ---
 
-<div class="o-wrapper">
+<layout-wrapper>
   <article id="about-ccjs">
     <h1>Oh, hey.</h1>
     <div>
@@ -18,12 +18,10 @@ description: We're Baltimore's JavaScript community and we want to hang out with
         of your own!
       </p>
       <p>
-        <small>
-          We really do want to hang out with you, and we've got
-          <a href="/code-of-conduct/">a code of conduct</a> that's really
-          important to us. Please read and follow it if you want to hang out
-          too, thanks. :D
-        </small>
+        We really do want to hang out with you, and we've got
+        <a href="/code-of-conduct/">a code of conduct</a> that's really
+        important to us. Please read and follow it if you want to hang out too,
+        thanks. :D
       </p>
     </div>
   </article>
@@ -35,32 +33,19 @@ description: We're Baltimore's JavaScript community and we want to hang out with
       any event and say hello, or email us at
       <a href="mailto:charmcityjs@gmail.com">charmcityjs@gmail.com</a> any time.
     </p>
-    <div class="u-grid">
-      <figure>
-        <img src="/static/images/organizers/jason.jpg" alt="jason" />
-        <figcaption>Jason</figcaption>
+    <fluid-grid columns="5">
+      {%- for organizer in organizers -%}
+      <figure class="organizer">
+        <img
+          src="{{ organizer.avatarSrc }}"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>{{ organizer.firstName }}</figcaption>
       </figure>
-      <figure>
-        <img src="/static/images/organizers/hyein.jpg" alt="jason" />
-        <figcaption>Hyein</figcaption>
-      </figure>
-      <figure>
-        <img src="/static/images/organizers/olivia.jpg" alt="jason" />
-        <figcaption>Olivia</figcaption>
-      </figure>
-      <figure>
-        <img src="/static/images/organizers/jose.jpg" alt="jason" />
-        <figcaption>Jose</figcaption>
-      </figure>
-      <figure>
-        <img src="/static/images/organizers/sal.jpg" alt="jason" />
-        <figcaption>Sal</figcaption>
-      </figure>
-      <figure>
-        <img src="/static/images/organizers/eric.jpg" alt="jason" />
-        <figcaption>Eric</figcaption>
-      </figure>
-    </div>
+      {%- endfor -%}
+    </fluid-grid>
   </article>
 
   <article id="join">
@@ -80,11 +65,9 @@ description: We're Baltimore's JavaScript community and we want to hang out with
       get it fixed ASAP.)
     </p>
     <p>
-      <small
-        >Never heard of Slack? It's a popular, free chat app used by businesses
-        and communities all over the world. Learn more at
-        <a href="https://slack.com">slack.com</a></small
-      >
+      Never heard of Slack? It's a popular, free chat app used by businesses and
+      communities all over the world. Learn more at
+      <a href="https://slack.com">slack.com</a>
     </p>
   </article>
-</div>
+</layout-wrapper>
