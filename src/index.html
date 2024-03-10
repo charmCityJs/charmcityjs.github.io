@@ -1,0 +1,69 @@
+---
+layout: base.html
+title: Home
+description: We're Baltimore's JavaScript community and we want to hang out with you (regular events on the first Wednesday of every month)
+---
+
+<layout-wrapper
+  content-padding="inline block"
+  class="stack has-preset-typography"
+  size="more"
+>
+  <article id="about-ccjs" class="flow prose">
+    <h1>Baltimore's JavaScript Community</h1>
+    <p>
+      CharmCityJS brings the web community of Baltimore together on the
+      <span class="font-bold">first Wednesday of every month</span> for an
+      evening of talks, hacking, and networking. Whether you have CTO-level
+      experience or are just getting started with web development, we're excited
+      to meet you.
+    </p>
+    <p>
+      Talk submissions are always open. Got an idea for a talk or know someone
+      else who does? Awesome! All intakes are handled through
+      <a href="{{ metadata.issues }}">GitHub issues</a>.
+    </p>
+  </article>
+
+  <article id="join" class="flow prose">
+    <h2 class="font-step-1">Join our Slack Community</h2>
+    <p>
+      <a href="https://slack.com">Slack</a> is where we all virtually hang out
+      in between our events. Say hey, ask questions about JavaScript (or
+      anything code related), about Baltimore in general, or anything you want
+      (within reason).
+    </p>
+    <p>
+      <a class="button button--fit" href="{{ metadata.slack }}"
+        >Join Our Slack</a
+      >
+    </p>
+  </article>
+
+  <article id="organizers" class="flow prose">
+    <h2 class="font-step-2">Our Organizers</h2>
+    <p>
+      We love making CCJS run. Find us at any of our events and say hello! You
+      can also
+      <a href="mailto:{{ metadata.email }}">send us an email</a>.
+    </p>
+    <fluid-grid columns="auto-fill" style="--flow-space: var(--space-l)">
+      {%- for organizer in organizers -%}
+      <figure class="organizer">
+        <img
+          width="200"
+          height="200"
+          class="fluid"
+          src="{{ organizer.avatarSrc }}"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="font-bold font-step--1">
+          {{ organizer.firstName }}
+        </figcaption>
+      </figure>
+      {%- endfor -%}
+    </fluid-grid>
+  </article>
+</layout-wrapper>
