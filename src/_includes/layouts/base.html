@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{{ metadata.title }} | {{ title | safe }}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="/static/css/style.css" rel="stylesheet" />
+
+    {% if description -%}
+    <meta name="description" content="{{ description | safe }}" />
+    {%- else -%}
+    <meta name="description" content="{{ metadata.description }}" />
+    {%- endif -%}
+
+    <meta name="og:locale" content="en_US" />
+    <meta name="og:type" content="article" />
+    <meta name="og:title" content="{{ title }}" />
+    <meta
+      name="og:description"
+      content="{{ description | safe or metadata.description }}"
+    />
+    <meta name="og:site_name" content="{{ metadata.domain }}" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta
+      name="twitter:description"
+      content="{{ description | safe or metadata.description }}"
+    />
+    <meta name="canonical" href="{{ metadata.url }}{{ page.url }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+  </head>
+  <body>
+    <div class="site">
+      <header class="site-header" id="header">
+        <layout-wrapper content-padding="inline block">
+          <div class="hero">
+            <div class="hero__left">
+              {%- set logo -%}
+              <img
+                width="200"
+                height="200"
+                src="/static/images/ccjs-transparent.png"
+                alt="CCJS"
+                decoding="async"
+                loading="lazy"
+              />
+              {%- endset -%} {%- if page.fileSlug -%}
+              <a class="rainbow" href="/" aria-label="CCJS homepage">
+                {{ logo | safe }}
+              </a>
+              {%- else -%} {{ logo | safe }} {%- endif -%}
+            </div>
+            <div class="hero__right flow">
+              <div class="ccjs">
+                <span class="font-lighter">charm<wbr />City</span><wbr />JS
+              </div>
+              <nav class="primary-navigation" aria-label="primary">
+                <ul role="list" class="flow">
+                  <li>
+                    <a
+                      class="button button--outline"
+                      href="{{ metadata.meetup }}"
+                      >Events</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="button button--outline"
+                      href="{{ metadata.talks }}"
+                      >Submit a Talk</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="button button--outline"
+                      href="{{ metadata.recommend }}"
+                      >Recommend a Speaker</a
+                    >
+                  </li>
+                  <li>
+                    <a class="button button--outline" href="/code-of-conduct/"
+                      >Code of Conduct</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </layout-wrapper>
+      </header>
+
+      <div class="site-body">
+        <main id="main" class="site-container">{{ content | safe }}</main>
+        <footer class="site-footer color-reverse" id="footer">
+          <layout-wrapper
+            size="more"
+            content-padding="block inline"
+            class="stack"
+          >
+            <div class="socials">
+              <flex-box>
+                {%- for social in socials -%}
+                <a class="rainbow" href="{{ social.url }}">
+                  {%- include 'svg/' + social.name | lower + '.svg' -%}
+                </a>
+                {%- endfor -%}
+              </flex-box>
+            </div>
+            <div class="sponsorships">
+              <p class="font-step--1">
+                Interested in becoming a sponsor?
+                <a href="mailto:{{ metadata.email }}?subject=Sponsorship"
+                  >Get in touch</a
+                >.
+              </p>
+            </div>
+          </layout-wrapper>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
