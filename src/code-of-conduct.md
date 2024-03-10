@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page.html
 title: Code of Conduct
 description: Our code of conduct is very important to us so please read carefully.
 ---
@@ -45,4 +45,4 @@ meetup. We value your attendance.
 - Diamond Cab: [(410) 947-3333](tel:4109473333) - <https://www.diamondcab.com>
 - Arrow Cab: [(410) 261-0000](tel:4102610000) - <https://www.arrowcabmd.com>
 
-<p class="font-step--1 font-italic" style="margin-block-start: var(--space-xl);">Adapted from <a href="https://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy">https://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy</a></p>
+<p class="font-step--1 font-italic" style="margin-block-start: var(--space-xl);">Adapted from <a href="https://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy">https://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy</a>.</p>

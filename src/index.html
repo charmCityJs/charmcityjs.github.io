@@ -1,5 +1,5 @@
 ---
-layout: base
+layout: base.html
 title: Home
 description: We're Baltimore's JavaScript community and we want to hang out with you (regular events on the first Wednesday of every month)
 ---
@@ -12,7 +12,7 @@ description: We're Baltimore's JavaScript community and we want to hang out with
   <article id="about-ccjs" class="flow prose">
     <h1>Baltimore's JavaScript Community</h1>
     <p>
-      CharmCityJS brings the JS community of Baltimore together on the
+      CharmCityJS brings the web community of Baltimore together on the
       <span class="font-bold">first Wednesday of every month</span> for an
       evening of talks, hacking, and networking. Whether you have CTO-level
       experience or are just getting started with web development, we're excited
@@ -25,8 +25,23 @@ description: We're Baltimore's JavaScript community and we want to hang out with
     </p>
   </article>
 
+  <article id="join" class="flow prose">
+    <h2 class="font-step-1">Join our Slack Community</h2>
+    <p>
+      <a href="https://slack.com">Slack</a> is where we all virtually hang out
+      in between our events. Say hey, ask questions about JavaScript (or
+      anything code related), about Baltimore in general, or anything you want
+      (within reason).
+    </p>
+    <p>
+      <a class="button button--fit" href="{{ metadata.slack }}"
+        >Join Our Slack</a
+      >
+    </p>
+  </article>
+
   <article id="organizers" class="flow prose">
-    <h2>Our Organizers</h2>
+    <h2 class="font-step-2">Our Organizers</h2>
     <p>
       We love making CCJS run. Find us at any of our events and say hello! You
       can also
@@ -50,20 +65,5 @@ description: We're Baltimore's JavaScript community and we want to hang out with
       </figure>
       {%- endfor -%}
     </fluid-grid>
-  </article>
-
-  <article id="join" class="flow prose">
-    <h2>Join the Discussion</h2>
-    <p>
-      <a href="https://slack.com">Slack</a> is where we all virtually hang out
-      in between our events. Say hey, ask questions about JavaScript (or
-      anything code related), about Baltimore in general, or anything you want
-      (within reason).
-    </p>
-    <p>
-      <a class="button button--fit" href="{{ metadata.slack }}"
-        >Join Our Slack</a
-      >
-    </p>
   </article>
 </layout-wrapper>

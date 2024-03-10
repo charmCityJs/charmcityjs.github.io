@@ -1,5 +1,5 @@
 export default function (config) {
-  config.addPassthroughCopy("static");
+  config.addPassthroughCopy({ public: "/" });
 
   return {
     htmlTemplateEngine: "njk",
