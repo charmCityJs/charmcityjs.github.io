@@ -1,6 +1,5 @@
 ---
 layout: page
-containerSize: more
 title: Code of Conduct
 description: Our code of conduct is very important to us so please read carefully.
 ---
@@ -36,16 +35,14 @@ meetup. We value your attendance.
 
 ## Important Contact Information
 
-- Event Organizers’ Email Address: [tasha.k.jones@gmail.com](mailto:tasha.k.jones@gmail.com)
+- Event Organizers’ Email Address: [charmcityjs@gmail.com](mailto:charmcityjs@gmail.com)
 - Law Enforcement: [911](tel:911)
 - Emergency Medical Assistance: [911](tel:911)
 - Baltimore Sexual Assault Hotline: [(443) 279-0379](tel:4432790379)
 
 ## Taxi Companies
 
-- Diamond Cab: [(410) 947-3333](tel:4109473333) - <www.diamondcab.com>
-- Arrow Cab: [(410) 261-0000](tel:4102610000) - <www.arrowcabmd.com>
+- Diamond Cab: [(410) 947-3333](tel:4109473333) - <https://www.diamondcab.com>
+- Arrow Cab: [(410) 261-0000](tel:4102610000) - <https://www.arrowcabmd.com>
 
-## Citations
-
-Adapted from <https://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy>
+<p class="font-step--1 font-italic" style="margin-block-start: var(--space-xl);">Adapted from <a href="https://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy">https://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy</a></p>

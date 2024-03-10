@@ -78,6 +78,13 @@
                     >
                   </li>
                   <li>
+                    <a
+                      class="button button--outline"
+                      href="{{ metadata.recommend }}"
+                      >Recommend a Speaker</a
+                    >
+                  </li>
+                  <li>
                     <a class="button button--outline" href="/code-of-conduct/"
                       >Code of Conduct</a
                     >
@@ -89,7 +96,34 @@
         </layout-wrapper>
       </header>
 
-      <main id="main" class="site-container">{{ content | safe }}</main>
+      <div class="stack">
+        <main id="main" class="site-container">{{ content | safe }}</main>
+        <footer class="site-footer color-reverse" id="footer">
+          <layout-wrapper
+            size="more"
+            content-padding="block inline"
+            class="stack"
+          >
+            <div class="socials">
+              <flex-box>
+                {%- for social in socials -%}
+                <a class="rainbow" href="{{ social.url }}">
+                  {%- include 'svg/' + social.name | lower + '.svg' -%}
+                </a>
+                {%- endfor -%}
+              </flex-box>
+            </div>
+            <div class="sponsorships">
+              <p class="font-step--1">
+                Interested in becoming a sponsor?
+                <a href="mailto:{{ metadata.email }}?subject=Sponsorship"
+                  >Get in touch</a
+                >.
+              </p>
+            </div>
+          </layout-wrapper>
+        </footer>
+      </div>
     </div>
   </body>
 </html>

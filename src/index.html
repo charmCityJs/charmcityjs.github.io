@@ -4,9 +4,13 @@ title: Home
 description: We're Baltimore's JavaScript community and we want to hang out with you (regular events on the first Wednesday of every month)
 ---
 
-<layout-wrapper content-padding="inline block" class="stack" size="more">
+<layout-wrapper
+  content-padding="inline block"
+  class="stack has-preset-typography"
+  size="more"
+>
   <article id="about-ccjs" class="flow prose">
-    <h1 class="font-step-5">Baltimore's JavaScript Community</h1>
+    <h1>Baltimore's JavaScript Community</h1>
     <p>
       CharmCityJS brings the JS community of Baltimore together on the
       <span class="font-bold">first Wednesday of every month</span> for an
@@ -15,32 +19,20 @@ description: We're Baltimore's JavaScript community and we want to hang out with
       to meet you.
     </p>
     <p>
-      <a class="button button--fit" href="{{ metadata.meetup }}"
-        >Join Our Meetup!</a
-      >
-    </p>
-    <p>
       Talk submissions are always open. Got an idea for a talk or know someone
-      else who does? Awesome! All intakes are handled through GitHub issues.
+      else who does? Awesome! All intakes are handled through
+      <a href="{{ metadata.issues }}">GitHub issues</a>.
     </p>
-    <flex-box>
-      <a class="button button--fit" href="{{ metadata.talks }}"
-        >Submit a Talk</a
-      >
-      <a class="button button--fit" href="{{ metadata.recommend }}"
-        >Recommend a Speaker</a
-      >
-    </flex-box>
   </article>
 
   <article id="organizers" class="flow prose">
     <h2>Our Organizers</h2>
     <p>
-      Hi, this is what we look like! We love making CCJS run. Find any of us at
-      any event and say hello, or email us at
-      <a href="mailto:charmcityjs@gmail.com">charmcityjs@gmail.com</a> any time.
+      We love making CCJS run. Find us at any of our events and say hello! You
+      can also
+      <a href="mailto:{{ metadata.email }}">send us an email</a>.
     </p>
-    <fluid-grid columns="auto-fill">
+    <fluid-grid columns="auto-fill" style="--flow-space: var(--space-l)">
       {%- for organizer in organizers -%}
       <figure class="organizer">
         <img
@@ -52,32 +44,26 @@ description: We're Baltimore's JavaScript community and we want to hang out with
           loading="lazy"
           decoding="async"
         />
-        <figcaption>{{ organizer.firstName }}</figcaption>
+        <figcaption class="font-bold font-step--1">
+          {{ organizer.firstName }}
+        </figcaption>
       </figure>
       {%- endfor -%}
     </fluid-grid>
   </article>
 
   <article id="join" class="flow prose">
-    <h2>Join our Slack team</h2>
-    <p>click here for an invite ----</p>
+    <h2>Join the Discussion</h2>
     <p>
-      Slack is where we all virtually hang out in between our in-person events.
-      Come say hello, ask questions about JavaScript, about Baltimore in
-      general, or anything you want!
+      <a href="https://slack.com">Slack</a> is where we all virtually hang out
+      in between our events. Say hey, ask questions about JavaScript (or
+      anything code related), about Baltimore in general, or anything you want
+      (within reason).
     </p>
     <p>
-      Give us your email here (or at
-      <a href="http:/slack.charmcityjs.org/">slack.charmcityjs.org</a>) and
-      we'll email you an invite so you can sign up and join us! (Didn't get an
-      invite? Email us at
-      <a href="mailto:charmcityjs@gmail.com">charmcityjs@gmail.com</a> and we'll
-      get it fixed ASAP.)
-    </p>
-    <p>
-      Never heard of Slack? It's a popular, free chat app used by businesses and
-      communities all over the world. Learn more at
-      <a href="https://slack.com">slack.com</a>
+      <a class="button button--fit" href="{{ metadata.slack }}"
+        >Join Our Slack</a
+      >
     </p>
   </article>
 </layout-wrapper>

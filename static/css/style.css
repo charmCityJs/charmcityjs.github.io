@@ -124,6 +124,7 @@
     --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043cqi, 7.5rem);
 
     --dark: rgb(0, 0, 0);
+    --white: #fff;
     --light-rgb: 241 239 229;
     --light: rgb(var(--light-rgb));
     --light-transparent: rgb(var(--light-rgb) / 0.75);
@@ -170,11 +171,11 @@
   }
 
   h2 {
-    --wght: 700;
+    --wght: 800;
   }
 
   h3 {
-    --wght: 650;
+    --wght: 700;
   }
 
   h4 {
@@ -197,37 +198,43 @@
     h5,
     h6 {
       font-size: var(--size);
-      font-weight: var(--wght);
     }
 
     h1 {
-      --size: var(--step-4);
-      --wght: 800;
+      --size: var(--step-5);
     }
 
     h2 {
-      --size: var(--step-3);
-      --wght: 700;
+      --size: var(--step-4);
     }
 
     h3 {
-      --size: var(--step-2);
-      --wght: 650;
+      --size: var(--step-3);
     }
 
     h4 {
-      --size: var(--step-1);
-      --wght: 600;
+      --size: var(--step-2);
     }
 
     h5 {
-      --size: var(--step--1);
-      --wght: 550;
+      --size: var(--step-1);
     }
 
     h6 {
-      --size: var(--step--2);
-      --wght: 500;
+      --size: var(--step-0);
+    }
+  }
+
+  a {
+    color: #1c4bd7;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 0.125em;
+    transition-duration: 300ms;
+    transition-property: text-decoration-thickness;
+    transition-timing-function: ease;
+
+    &:is(:hover, :focus-visible) {
+      text-decoration-thickness: 0.25em;
     }
   }
 
@@ -241,6 +248,11 @@
 
   .site-header {
     background-color: var(--js-yellow);
+
+    > :first-child {
+      inset-block-start: 0;
+      position: sticky;
+    }
 
     .hero {
       align-items: center;
@@ -262,9 +274,19 @@
     }
   }
 
+  .site-footer {
+    inset-block-start: 100dvh;
+    position: sticky;
+  }
+
+  .socials svg {
+    block-size: 48px;
+    inline-size: 48px;
+  }
+
   .ccjs {
     font-size: var(--step-3);
-    font-weight: 700
+    font-weight: 700;
     text-transform: uppercase;
   }
 
@@ -366,7 +388,7 @@
     border: 2px solid var(--button-border, transparent);
     border-radius: 0.5em;
     box-shadow: var(--button-shadow, none);
-    color: var(--button-text, var(--background));
+    color: var(--button-text, var(--white));
     display: inline-block;
     font-weight: 700;
     inline-size: var(--button-width, 100%);
@@ -403,6 +425,7 @@
 
     img {
       border-radius: 15%;
+      filter: drop-shadow(3px 2px 4px);
       max-inline-size: 200px;
     }
   }
@@ -420,7 +443,7 @@
   }
 
   .rainbow:is(:hover, :focus-visible) {
-    animation-duration: 10s;
+    animation-duration: 7s;
     animation-iteration-count: infinite;
     animation-name: rainbow;
   }
@@ -446,6 +469,10 @@
 
   .uppercase {
     text-transform: uppercase;
+  }
+
+  .font-italic {
+    font-style: italic;
   }
 
   .font-light {
@@ -494,5 +521,14 @@
 
   .font-step--2 {
     --font-step: var(--step--2);
+  }
+
+  .color-reverse {
+    background-color: var(--foreground);
+    color: var(--background);
+
+    a {
+      color: var(--light);
+    }
   }
 }

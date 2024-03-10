@@ -18,6 +18,6 @@ export default [
   new Organizer("Glen", "Goodwin", "glen.png"),
   new Organizer("Asa", "Smith", "asa.jpg"),
   new Organizer("Troy", "Vassalotti", "troy.jpg"),
-  new Organizer("Eli", "Oshinsky", "eli.jpg"),
   new Organizer("Roman", "Grewal", "roman.jpg"),
+  new Organizer("Eli", "Oshinsky", "eli.jpg"),
 ];
