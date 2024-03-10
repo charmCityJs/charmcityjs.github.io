@@ -4,26 +4,33 @@ title: Home
 description: We're Baltimore's JavaScript community and we want to hang out with you (regular events on the first Wednesday of every month)
 ---
 
-<layout-wrapper has-content-padding class="flow">
+<layout-wrapper content-padding="inline block" class="stack" size="more">
   <article id="about-ccjs" class="flow prose">
-    <h1>Baltimore's JavaScript Community</h1>
-    <div>
-      <p>
-        We're Baltimore's JavaScript community and we want to hang out with you.
-        <a href="http://www.meetup.com/charmcityjs"
-          >Check out our First Wednesday meetups</a
-        >
-        or
-        <a href="https://github.com/charmcityjs/talks">submit a talk idea</a>
-        of your own!
-      </p>
-      <p>
-        We really do want to hang out with you, and we've got
-        <a href="/code-of-conduct/">a code of conduct</a> that's really
-        important to us. Please read and follow it if you want to hang out too,
-        thanks. :D
-      </p>
-    </div>
+    <h1 class="font-step-5">Baltimore's JavaScript Community</h1>
+    <p>
+      CharmCityJS brings the JS community of Baltimore together on the
+      <span class="font-bold">first Wednesday of every month</span> for an
+      evening of talks, hacking, and networking. Whether you have CTO-level
+      experience or are just getting started with web development, we're excited
+      to meet you.
+    </p>
+    <p>
+      <a class="button button--fit" href="{{ metadata.meetup }}"
+        >Join Our Meetup!</a
+      >
+    </p>
+    <p>
+      Talk submissions are always open. Got an idea for a talk or know someone
+      else who does? Awesome! All intakes are handled through GitHub issues.
+    </p>
+    <flex-box>
+      <a class="button button--fit" href="{{ metadata.talks }}"
+        >Submit a Talk</a
+      >
+      <a class="button button--fit" href="{{ metadata.recommend }}"
+        >Recommend a Speaker</a
+      >
+    </flex-box>
   </article>
 
   <article id="organizers" class="flow prose">
@@ -33,7 +40,7 @@ description: We're Baltimore's JavaScript community and we want to hang out with
       any event and say hello, or email us at
       <a href="mailto:charmcityjs@gmail.com">charmcityjs@gmail.com</a> any time.
     </p>
-    <fluid-grid columns="5">
+    <fluid-grid columns="auto-fill">
       {%- for organizer in organizers -%}
       <figure class="organizer">
         <img

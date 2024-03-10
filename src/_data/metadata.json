@@ -4,5 +4,6 @@
   "domain": "charmcityjs.github.io",
   "url": "https://charmcityjs.github.io",
   "meetup": "https://www.meetup.com/charmcityjs/",
-  "talks": "https://github.com/charmCityJs/talks/issues/new?labels=talk&template=submit-talk.md"
+  "talks": "https://github.com/charmCityJs/talks/issues/new?labels=talk&template=submit-talk.md",
+  "recommend": "https://github.com/charmCityJs/talks/issues/new?labels=speaker&template=recommend-speaker.md"
 }

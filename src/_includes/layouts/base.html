@@ -6,6 +6,12 @@
 
     <title>{{ metadata.title }} | {{ title | safe }}</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
     <link href="/static/css/style.css" rel="stylesheet" />
 
     {% if description -%}
@@ -33,23 +39,27 @@
   <body>
     <div class="site">
       <header class="site-header" id="header">
-        <layout-wrapper has-content-padding>
+        <layout-wrapper content-padding="inline block">
           <div class="hero">
             <div class="hero__left">
-              <a href="/" aria-label="CCJS homepage">
-                <img
-                  width="200"
-                  height="200"
-                  src="/static/images/ccjs-logo.png"
-                  alt="CCJS"
-                  decoding="async"
-                  loading="lazy"
-                />
+              {%- set logo -%}
+              <img
+                width="200"
+                height="200"
+                src="/static/images/ccjs-transparent.png"
+                alt="CCJS"
+                decoding="async"
+                loading="lazy"
+              />
+              {%- endset -%} {%- if page.fileSlug -%}
+              <a class="rainbow" href="/" aria-label="CCJS homepage">
+                {{ logo | safe }}
               </a>
+              {%- else -%} {{ logo | safe }} {%- endif -%}
             </div>
             <div class="hero__right flow">
               <div class="ccjs">
-                <span class="font-light">charm<wbr />City</span><wbr />JS
+                <span class="font-lighter">charm<wbr />City</span><wbr />JS
               </div>
               <nav class="primary-navigation" aria-label="primary">
                 <ul role="list" class="flow">

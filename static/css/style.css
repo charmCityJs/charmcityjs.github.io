@@ -1,4 +1,4 @@
-@layer reset, base, utilities;
+@layer reset, base, animations, utilities;
 
 @layer reset {
   html {
@@ -130,6 +130,12 @@
     --background: var(--light);
     --foreground: var(--dark);
     --js-yellow: #f0da65;
+    --font-normal: "Inter";
+    --font-tight: "Inter Tight";
+    --font-fallback: Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+      Arial, sans-serif;
+    --font-body: var(--font-normal), var(--font-fallback);
+    --font-heading: var(--font-tight), var(--font-fallback);
 
     scrollbar-gutter: stable;
   }
@@ -137,14 +143,7 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font:
-      var(--step-0) / 1.5 Inter,
-      Roboto,
-      "Helvetica Neue",
-      "Arial Nova",
-      "Nimbus Sans",
-      Arial,
-      sans-serif;
+    font: var(--step-0) / 1.5 var(--font-body);
   }
 
   h1,
@@ -153,7 +152,83 @@
   h4,
   h5,
   h6 {
+    font-family: var(--font-heading);
     line-height: 1.1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var(--wght);
+  }
+
+  h1 {
+    --wght: 800;
+  }
+
+  h2 {
+    --wght: 700;
+  }
+
+  h3 {
+    --wght: 650;
+  }
+
+  h4 {
+    --wght: 600;
+  }
+
+  h5 {
+    --wght: 550;
+  }
+
+  h6 {
+    --wght: 500;
+  }
+
+  .has-preset-typography {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: var(--size);
+      font-weight: var(--wght);
+    }
+
+    h1 {
+      --size: var(--step-4);
+      --wght: 800;
+    }
+
+    h2 {
+      --size: var(--step-3);
+      --wght: 700;
+    }
+
+    h3 {
+      --size: var(--step-2);
+      --wght: 650;
+    }
+
+    h4 {
+      --size: var(--step-1);
+      --wght: 600;
+    }
+
+    h5 {
+      --size: var(--step--1);
+      --wght: 550;
+    }
+
+    h6 {
+      --size: var(--step--2);
+      --wght: 500;
+    }
   }
 
   .site {
@@ -183,14 +258,13 @@
 
     .primary-navigation {
       font-size: var(--step--1);
-      font-weight: bold;
       text-transform: uppercase;
     }
   }
 
   .ccjs {
     font-size: var(--step-3);
-    font-weight: bold;
+    font-weight: 700
     text-transform: uppercase;
   }
 
@@ -222,8 +296,12 @@
       --wrapper-size: 41.5rem;
     }
 
-    &[has-content-padding] {
-      padding-block: var(--space-s);
+    &[content-padding~="block"] {
+      padding-block: var(--space-m);
+    }
+
+    &[content-padding~="inline"] {
+      padding-inline: var(--space-s);
     }
   }
 
@@ -256,6 +334,31 @@
     &[columns="5"] {
       --grid-column-count: 5;
     }
+
+    &[columns*="auto"] {
+      grid-template-columns: repeat(
+        var(--fluid-type),
+        minmax(var(--grid-item--min-width), 1fr)
+      );
+    }
+
+    &[columns="auto-fill"] {
+      --fluid-type: auto-fill;
+    }
+
+    &[columns="auto-fit"] {
+      --fluid-type: auto-fit;
+    }
+  }
+
+  flex-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+
+    &[no-wrap] {
+      flex-wrap: nowrap;
+    }
   }
 
   .button {
@@ -265,9 +368,10 @@
     box-shadow: var(--button-shadow, none);
     color: var(--button-text, var(--background));
     display: inline-block;
-    inline-size: 100%;
+    font-weight: 700;
+    inline-size: var(--button-width, 100%);
     padding-block: 0.5em;
-    padding-inline: 0.125em;
+    padding-inline: 0.5em;
     text-align: center;
     text-decoration: none;
     transition-duration: 300ms;
@@ -286,6 +390,10 @@
       --button-border: var(--dark);
       --button-text: var(--dark);
     }
+
+    &.button--fit {
+      --button-width: auto;
+    }
   }
 
   .organizer {
@@ -300,10 +408,32 @@
   }
 }
 
+@layer animations {
+  @keyframes rainbow {
+    from {
+      filter: hue-rotate(0deg);
+    }
+
+    to {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  .rainbow:is(:hover, :focus-visible) {
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-name: rainbow;
+  }
+}
+
 @layer utilities {
   /* Create equal spacing between elements in a flow context without setting display */
-  .flow > *:not(style, script) + *:not(style, script) {
+  .flow > * + * {
     margin-block-start: var(--flow-space, 1em);
+  }
+
+  .stack > * + * {
+    margin-block-start: 2rem;
   }
 
   .prose :is(h1, h2, h3, h4, h5, h6, p) {
@@ -314,7 +444,55 @@
     inline-size: 100%;
   }
 
+  .uppercase {
+    text-transform: uppercase;
+  }
+
   .font-light {
     font-weight: 300;
+  }
+
+  .font-lighter {
+    font-weight: 200;
+  }
+
+  .font-bold {
+    font-weight: 700;
+  }
+
+  [class*="font-step"] {
+    font-size: var(--font-step);
+  }
+
+  .font-step-5 {
+    --font-step: var(--step-5);
+  }
+
+  .font-step-4 {
+    --font-step: var(--step-4);
+  }
+
+  .font-step-3 {
+    --font-step: var(--step-3);
+  }
+
+  .font-step-2 {
+    --font-step: var(--step-2);
+  }
+
+  .font-step-1 {
+    --font-step: var(--step-1);
+  }
+
+  .font-step-0 {
+    --font-step: var(--step-0);
+  }
+
+  .font-step--1 {
+    --font-step: var(--step--1);
+  }
+
+  .font-step--2 {
+    --font-step: var(--step--2);
   }
 }
