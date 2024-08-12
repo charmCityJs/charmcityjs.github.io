@@ -1,4 +1,4 @@
-@layer reset, base, animations, utilities;
+@layer reset, base, components, animations, utilities;
 
 @layer reset {
   html {
@@ -84,7 +84,6 @@
 @layer base {
   html {
     /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-
     /* Step -2: 12.5px → 12.8px */
     --step--2: clamp(0.7813rem, 0.7747rem + 0.0326cqi, 0.8rem);
     /* Step -1: 15px → 16px */
@@ -103,9 +102,6 @@
     --step-5: clamp(2.7994rem, 2.4462rem + 1.7658cqi, 3.8147rem);
 
     /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-
-    /* Space 3xs: 5px → 5px */
-    --space-3xs: clamp(0.3125rem, 0.3125rem + 0cqi, 0.3125rem);
     /* Space 2xs: 9px → 10px */
     --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087cqi, 0.625rem);
     /* Space xs: 14px → 15px */
@@ -120,8 +116,6 @@
     --space-xl: clamp(3.375rem, 3.2446rem + 0.6522cqi, 3.75rem);
     /* Space 2xl: 72px → 80px */
     --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696cqi, 5rem);
-    /* Space 3xl: 108px → 120px */
-    --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043cqi, 7.5rem);
 
     --dark: rgb(0, 0, 0);
     --white: #fff;
@@ -131,6 +125,8 @@
     --background: var(--light);
     --foreground: var(--dark);
     --js-yellow: #f0da65;
+    --links: #1c4bd7;
+
     --font-normal: "Inter";
     --font-tight: "Inter Tight";
     --font-fallback: Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
@@ -145,6 +141,12 @@
     background-color: var(--background);
     color: var(--foreground);
     font: var(--step-0) / 1.5 var(--font-body);
+
+    @media (min-width: 960px) {
+      display: grid;
+      grid-template-columns: min(30dvw, 25rem) 1fr;
+      min-block-size: inherit;
+    }
   }
 
   h1,
@@ -154,16 +156,8 @@
   h5,
   h6 {
     font-family: var(--font-heading);
-    line-height: 1.1;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
     font-weight: var(--wght);
+    line-height: 1.1;
   }
 
   h1 {
@@ -226,26 +220,20 @@
   }
 
   a {
-    color: #1c4bd7;
+    color: var(--links);
     text-decoration-skip-ink: none;
     text-decoration-thickness: 0.125em;
-    transition-duration: 300ms;
+    transition-duration: 150ms;
     transition-property: text-decoration-thickness;
-    transition-timing-function: ease;
+    transition-timing-function: ease-in-out;
 
     &:is(:hover, :focus-visible) {
-      text-decoration-thickness: 0.25em;
+      text-decoration-thickness: 0.2em;
     }
   }
+}
 
-  .site {
-    @media (min-width: 960px) {
-      display: grid;
-      grid-template-columns: min(30dvw, 25rem) 1fr;
-      min-block-size: inherit;
-    }
-  }
-
+@layer components {
   .site-header {
     background-color: var(--js-yellow);
 
@@ -272,22 +260,22 @@
       font-size: var(--step--1);
       text-transform: uppercase;
     }
+
+    .ccjs {
+      font-size: var(--step-3);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
   }
 
   .site-footer {
     inset-block-start: 100dvh;
     position: sticky;
-  }
 
-  .socials svg {
-    block-size: 48px;
-    inline-size: 48px;
-  }
-
-  .ccjs {
-    font-size: var(--step-3);
-    font-weight: 700;
-    text-transform: uppercase;
+    .socials svg {
+      block-size: 48px;
+      inline-size: 48px;
+    }
   }
 
   layout-wrapper {
@@ -455,6 +443,7 @@
     margin-block-start: var(--flow-space, 1em);
   }
 
+  /* Create even more equal space between elements */
   .stack > * + * {
     margin-block-start: 2rem;
   }
@@ -465,10 +454,6 @@
 
   .fluid {
     inline-size: 100%;
-  }
-
-  .uppercase {
-    text-transform: uppercase;
   }
 
   .font-italic {

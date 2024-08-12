@@ -11,4 +11,4 @@ class Sponsor {
   }
 }
 
-export default [];
+// export default [];
