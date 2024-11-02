@@ -14,6 +14,12 @@
     />
     <link href="/static/css/style.css" rel="stylesheet" />
 
+    <script
+      defer
+      id="luma-checkout"
+      src="https://embed.lu.ma/checkout-button.js"
+    />
+
     {% if description -%}
     <meta name="description" content="{{ description | safe }}" />
     {%- else -%}
@@ -35,6 +41,7 @@
       content="{{ description | safe or metadata.description }}"
     />
     <meta name="canonical" href="{{ metadata.url }}{{ page.url }}" />
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -46,6 +53,7 @@
         <layout-wrapper content-padding="inline block">
           <div class="hero">
             <div class="hero__left">
+              <!-- prettier-ignore -->
               {%- set logo -%}
               <img
                 width="200"
@@ -55,11 +63,17 @@
                 decoding="async"
                 loading="lazy"
               />
-              {%- endset -%} {%- if page.fileSlug -%}
+              {%- endset -%}
+
+              <!-- prettier-ignore -->
+              {%- if page.fileSlug -%}
               <a class="rainbow" href="/" aria-label="CCJS homepage">
                 {{ logo | safe }}
               </a>
-              {%- else -%} {{ logo | safe }} {%- endif -%}
+              <!-- prettier-ignore -->
+              {%- else -%}
+              {{ logo | safe }}
+              {%- endif -%}
             </div>
             <div class="hero__right flow">
               <div class="ccjs">
@@ -68,9 +82,7 @@
               <nav class="primary-navigation" aria-label="primary">
                 <ul role="list" class="flow">
                   <li>
-                    <a
-                      class="button button--outline"
-                      href="{{ metadata.meetup }}"
+                    <a class="button button--outline" href="{{ metadata.luma }}"
                       >Events</a
                     >
                   </li>

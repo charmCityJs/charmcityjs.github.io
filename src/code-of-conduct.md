@@ -35,7 +35,7 @@ meetup. We value your attendance.
 
 ## Important Contact Information
 
-- Event Organizers’ Email Address: [charmcityjs@gmail.com](mailto:charmcityjs@gmail.com)
+- Event Organizers’ Email Address: [organizers@charmcityjs.org](mailto:organizers.charmcityjs.org)
 - Law Enforcement: [911](tel:911)
 - Emergency Medical Assistance: [911](tel:911)
 - Baltimore Sexual Assault Hotline: [(443) 279-0379](tel:4432790379)
