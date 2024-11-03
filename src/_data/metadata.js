@@ -6,7 +6,7 @@ export default {
   domain: "charmcityjs.github.io",
   url: "https://charmcityjs.github.io",
   github: "https://github.com/charmCityJs",
-  luma: "https://www.lu.ma/charmcityjs/",
+  luma: "https://lu.ma/calendar/cal-dHtaAUozv8GX0Y6",
   get issues() {
     return `${this.github}/talks/issues`;
   },

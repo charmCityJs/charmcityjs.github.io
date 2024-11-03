@@ -1,14 +1,4 @@
----
-layout: base.html
-title: Home
-description: We're Baltimore's JavaScript community and we want to hang out with you (regular events on the first Wednesday of every month)
----
-
-<layout-wrapper
-  content-padding="inline block"
-  class="stack has-preset-typography"
-  size="more"
->
+<layout-wrapper content-padding="inline block" class="stack" size="more">
   <article id="about-ccjs" class="flow prose">
     <h1>Baltimore's JavaScript Community</h1>
     <p>
@@ -24,6 +14,8 @@ description: We're Baltimore's JavaScript community and we want to hang out with
       <a href="{{ metadata.issues }}">GitHub issues</a>.
     </p>
   </article>
+
+  <article id="events">{% include 'partials/events.html' %}</article>
 
   <article id="join" class="flow prose">
     <h2 class="font-step-1">Join our Slack Community</h2>
@@ -53,9 +45,8 @@ description: We're Baltimore's JavaScript community and we want to hang out with
         <img
           width="200"
           height="200"
-          class="fluid"
           src="{{ organizer.avatarSrc }}"
-          alt=""
+          alt="Portrait of {{ organizer.name }}"
           loading="lazy"
           decoding="async"
         />

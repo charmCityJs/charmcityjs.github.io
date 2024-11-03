@@ -145,6 +145,12 @@
     background-color: var(--background);
     color: var(--foreground);
     font: var(--step-0) / 1.5 var(--font-body);
+
+    @media (min-width: 960px) {
+      display: grid;
+      grid-template-columns: min(30dvw, 25rem) 1fr;
+      min-block-size: inherit;
+    }
   }
 
   h1,
@@ -154,75 +160,39 @@
   h5,
   h6 {
     font-family: var(--font-heading);
+    font-size: var(--size);
+    font-weight: var(--wght);
     line-height: 1.1;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: var(--wght);
-  }
-
   h1 {
+    --size: var(--step-5);
     --wght: 800;
   }
 
   h2 {
+    --size: var(--step-4);
     --wght: 800;
   }
 
   h3 {
+    --size: var(--step-3);
     --wght: 700;
   }
 
   h4 {
+    --size: var(--step-2);
     --wght: 600;
   }
 
   h5 {
+    --size: var(--step-1);
     --wght: 550;
   }
 
   h6 {
+    --size: var(--step-0);
     --wght: 500;
-  }
-
-  .has-preset-typography {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-size: var(--size);
-    }
-
-    h1 {
-      --size: var(--step-5);
-    }
-
-    h2 {
-      --size: var(--step-4);
-    }
-
-    h3 {
-      --size: var(--step-3);
-    }
-
-    h4 {
-      --size: var(--step-2);
-    }
-
-    h5 {
-      --size: var(--step-1);
-    }
-
-    h6 {
-      --size: var(--step-0);
-    }
   }
 
   a {
@@ -235,14 +205,6 @@
 
     &:is(:hover, :focus-visible) {
       text-decoration-thickness: 0.25em;
-    }
-  }
-
-  .site {
-    @media (min-width: 960px) {
-      display: grid;
-      grid-template-columns: min(30dvw, 25rem) 1fr;
-      min-block-size: inherit;
     }
   }
 
@@ -272,22 +234,70 @@
       font-size: var(--step--1);
       text-transform: uppercase;
     }
+
+    .ccjs {
+      font-size: var(--step-3);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
   }
 
   .site-footer {
     inset-block-start: 100dvh;
     position: sticky;
+
+    .socials svg {
+      block-size: 48px;
+      inline-size: 48px;
+    }
   }
 
-  .socials svg {
-    block-size: 48px;
-    inline-size: 48px;
-  }
-
-  .ccjs {
-    font-size: var(--step-3);
+  .button {
+    background-color: var(--button-bg, var(--dark));
+    border: 2px solid var(--button-border, transparent);
+    border-radius: 0.5em;
+    box-shadow: var(--button-shadow, none);
+    color: var(--button-text, var(--white));
+    display: inline-block;
     font-weight: 700;
-    text-transform: uppercase;
+    inline-size: var(--button-width, 100%);
+    padding-block: 0.5em;
+    padding-inline: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 300ms;
+    transition-property: box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    transform: var(--button-transform, translateY(0));
+    will-change: transform;
+
+    &:is(:hover, :focus-visible) {
+      --button-shadow: rgba(0, 0, 0, 0.25) 0 0.5em 1em;
+      --button-transform: translateY(-2px);
+    }
+
+    &.button--outline {
+      --button-bg: var(--light-transparent);
+      --button-border: var(--dark);
+      --button-text: var(--dark);
+    }
+
+    &.button--fit {
+      --button-width: auto;
+    }
+  }
+
+  .organizer {
+    display: grid;
+    gap: var(--space-xs);
+    place-items: center;
+
+    img {
+      border-radius: 15%;
+      filter: drop-shadow(3px 2px 4px);
+      inline-size: 100%;
+      max-inline-size: 200px;
+    }
   }
 
   layout-wrapper {
@@ -377,57 +387,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-s);
-
-    &[no-wrap] {
-      flex-wrap: nowrap;
-    }
-  }
-
-  .button {
-    background-color: var(--button-bg, var(--dark));
-    border: 2px solid var(--button-border, transparent);
-    border-radius: 0.5em;
-    box-shadow: var(--button-shadow, none);
-    color: var(--button-text, var(--white));
-    display: inline-block;
-    font-weight: 700;
-    inline-size: var(--button-width, 100%);
-    padding-block: 0.5em;
-    padding-inline: 0.5em;
-    text-align: center;
-    text-decoration: none;
-    transition-duration: 300ms;
-    transition-property: box-shadow, transform;
-    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
-    transform: var(--button-transform, translateY(0));
-    will-change: transform;
-
-    &:is(:hover, :focus-visible) {
-      --button-shadow: rgba(0, 0, 0, 0.25) 0 0.5em 1em;
-      --button-transform: translateY(-2px);
-    }
-
-    &.button--outline {
-      --button-bg: var(--light-transparent);
-      --button-border: var(--dark);
-      --button-text: var(--dark);
-    }
-
-    &.button--fit {
-      --button-width: auto;
-    }
-  }
-
-  .organizer {
-    display: grid;
-    gap: var(--space-xs);
-    place-items: center;
-
-    img {
-      border-radius: 15%;
-      filter: drop-shadow(3px 2px 4px);
-      max-inline-size: 200px;
-    }
   }
 }
 
@@ -461,14 +420,6 @@
 
   .prose :is(h1, h2, h3, h4, h5, h6, p) {
     max-inline-size: 70ch;
-  }
-
-  .fluid {
-    inline-size: 100%;
-  }
-
-  .uppercase {
-    text-transform: uppercase;
   }
 
   .font-italic {
