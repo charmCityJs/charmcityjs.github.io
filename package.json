@@ -1,21 +1,23 @@
 {
+  "type": "module",
   "name": "charmcityjs.github.io",
-  "version": "1.0.0",
-  "description": "CCJS website repo",
+  "version": "2.0.0",
+  "description": "charmCityJs Website",
   "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx eleventy",
+    "start": "npx eleventy --serve"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/charmCityJs/charmcityjs.github.io.git"
   },
-  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/charmCityJs/charmcityjs.github.io/issues"
   },
-  "homepage": "https://github.com/charmCityJs/charmcityjs.github.io#readme"
+  "homepage": "https://github.com/charmCityJs/charmcityjs.github.io#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
 }

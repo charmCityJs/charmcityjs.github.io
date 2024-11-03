@@ -1,0 +1,21 @@
+<footer class="site-footer color-reverse" id="footer">
+  <layout-wrapper size="more" content-padding="block inline" class="stack">
+    <div class="socials">
+      <flex-box>
+        {%- for social in socials -%}
+        <a class="rainbow" href="{{ social.url }}">
+          {%- include 'svg/' + social.name | lower + '.svg' ignore missing -%}
+        </a>
+        {%- endfor -%}
+      </flex-box>
+    </div>
+    <div class="sponsorships">
+      <p class="font-step--1">
+        Interested in becoming a sponsor?
+        <a href="mailto:{{ metadata.email }}?subject=Sponsorship"
+          >Get in touch</a
+        >.
+      </p>
+    </div>
+  </layout-wrapper>
+</footer>

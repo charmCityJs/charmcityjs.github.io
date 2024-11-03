@@ -1,0 +1,485 @@
+@layer reset, base, animations, utilities;
+
+@layer reset {
+  html {
+    box-sizing: border-box;
+
+    &:focus-within {
+      scroll-behavior: smooth;
+    }
+  }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+    margin: 0;
+  }
+
+  body {
+    min-block-size: 100dvh;
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Improve media defaults */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    block-size: auto;
+    display: block;
+    max-inline-size: 100%;
+  }
+
+  /* Remove built-in form typography styles */
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Avoid text overflows */
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* A elements that don't have a class get default styles */
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  ul[role="list"],
+  ol[role="list"] {
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer base {
+  html {
+    /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+    /* Step -2: 12.5px → 12.8px */
+    --step--2: clamp(0.7813rem, 0.7747rem + 0.0326cqi, 0.8rem);
+    /* Step -1: 15px → 16px */
+    --step--1: clamp(0.9375rem, 0.9158rem + 0.1087cqi, 1rem);
+    /* Step 0: 18px → 20px */
+    --step-0: clamp(1.125rem, 1.0815rem + 0.2174cqi, 1.25rem);
+    /* Step 1: 21.6px → 25px */
+    --step-1: clamp(1.35rem, 1.2761rem + 0.3696cqi, 1.5625rem);
+    /* Step 2: 25.92px → 31.25px */
+    --step-2: clamp(1.62rem, 1.5041rem + 0.5793cqi, 1.9531rem);
+    /* Step 3: 31.104px → 39.0625px */
+    --step-3: clamp(1.944rem, 1.771rem + 0.8651cqi, 2.4414rem);
+    /* Step 4: 37.3248px → 48.8281px */
+    --step-4: clamp(2.3328rem, 2.0827rem + 1.2504cqi, 3.0518rem);
+    /* Step 5: 44.7898px → 61.0352px */
+    --step-5: clamp(2.7994rem, 2.4462rem + 1.7658cqi, 3.8147rem);
+
+    /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+    /* Space 3xs: 5px → 5px */
+    --space-3xs: clamp(0.3125rem, 0.3125rem + 0cqi, 0.3125rem);
+    /* Space 2xs: 9px → 10px */
+    --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087cqi, 0.625rem);
+    /* Space xs: 14px → 15px */
+    --space-xs: clamp(0.875rem, 0.8533rem + 0.1087cqi, 0.9375rem);
+    /* Space s: 18px → 20px */
+    --space-s: clamp(1.125rem, 1.0815rem + 0.2174cqi, 1.25rem);
+    /* Space m: 27px → 30px */
+    --space-m: clamp(1.6875rem, 1.6223rem + 0.3261cqi, 1.875rem);
+    /* Space l: 36px → 40px */
+    --space-l: clamp(2.25rem, 2.163rem + 0.4348cqi, 2.5rem);
+    /* Space xl: 54px → 60px */
+    --space-xl: clamp(3.375rem, 3.2446rem + 0.6522cqi, 3.75rem);
+    /* Space 2xl: 72px → 80px */
+    --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696cqi, 5rem);
+    /* Space 3xl: 108px → 120px */
+    --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043cqi, 7.5rem);
+
+    --dark: rgb(0, 0, 0);
+    --white: #fff;
+    --light-rgb: 241 239 229;
+    --light: rgb(var(--light-rgb));
+    --light-transparent: rgb(var(--light-rgb) / 0.75);
+    --background: var(--light);
+    --foreground: var(--dark);
+    --js-yellow: #f0da65;
+    --font-normal: "Inter";
+    --font-tight: "Inter Tight";
+    --font-fallback: Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+      Arial, sans-serif;
+    --font-body: var(--font-normal), var(--font-fallback);
+    --font-heading: var(--font-tight), var(--font-fallback);
+
+    scrollbar-gutter: stable;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font: var(--step-0) / 1.5 var(--font-body);
+
+    @media (min-width: 960px) {
+      display: grid;
+      grid-template-columns: min(30dvw, 25rem) 1fr;
+      min-block-size: inherit;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-size: var(--size);
+    font-weight: var(--wght);
+    line-height: 1.1;
+  }
+
+  h1 {
+    --size: var(--step-5);
+    --wght: 800;
+  }
+
+  h2 {
+    --size: var(--step-4);
+    --wght: 800;
+  }
+
+  h3 {
+    --size: var(--step-3);
+    --wght: 700;
+  }
+
+  h4 {
+    --size: var(--step-2);
+    --wght: 600;
+  }
+
+  h5 {
+    --size: var(--step-1);
+    --wght: 550;
+  }
+
+  h6 {
+    --size: var(--step-0);
+    --wght: 500;
+  }
+
+  a {
+    color: #1c4bd7;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: 0.125em;
+    transition-duration: 300ms;
+    transition-property: text-decoration-thickness;
+    transition-timing-function: ease;
+
+    &:is(:hover, :focus-visible) {
+      text-decoration-thickness: 0.25em;
+    }
+  }
+
+  .site-header {
+    background-color: var(--js-yellow);
+
+    > :first-child {
+      inset-block-start: 0;
+      position: sticky;
+    }
+
+    .hero {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-s);
+      justify-content: center;
+      word-break: break-word;
+
+      @media (min-width: 960px) {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    .primary-navigation {
+      font-size: var(--step--1);
+      text-transform: uppercase;
+    }
+
+    .ccjs {
+      font-size: var(--step-3);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+
+  .site-footer {
+    inset-block-start: 100dvh;
+    position: sticky;
+
+    .socials svg {
+      block-size: 48px;
+      inline-size: 48px;
+    }
+  }
+
+  .button {
+    background-color: var(--button-bg, var(--dark));
+    border: 2px solid var(--button-border, transparent);
+    border-radius: 0.5em;
+    box-shadow: var(--button-shadow, none);
+    color: var(--button-text, var(--white));
+    display: inline-block;
+    font-weight: 700;
+    inline-size: var(--button-width, 100%);
+    padding-block: 0.5em;
+    padding-inline: 0.5em;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 300ms;
+    transition-property: box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    transform: var(--button-transform, translateY(0));
+    will-change: transform;
+
+    &:is(:hover, :focus-visible) {
+      --button-shadow: rgba(0, 0, 0, 0.25) 0 0.5em 1em;
+      --button-transform: translateY(-2px);
+    }
+
+    &.button--outline {
+      --button-bg: var(--light-transparent);
+      --button-border: var(--dark);
+      --button-text: var(--dark);
+    }
+
+    &.button--fit {
+      --button-width: auto;
+    }
+  }
+
+  .organizer {
+    display: grid;
+    gap: var(--space-xs);
+    place-items: center;
+
+    img {
+      border-radius: 15%;
+      filter: drop-shadow(3px 2px 4px);
+      inline-size: 100%;
+      max-inline-size: 200px;
+    }
+  }
+
+  layout-wrapper {
+    display: block;
+    inline-size: min(
+      100% - var(--wrapper-padding, 2rem),
+      var(--wrapper-size, 100rem)
+    );
+    margin-inline: auto;
+
+    &[size="less"] {
+      --wrapper-size: 115rem;
+    }
+
+    &[size="default"] {
+      --wrapper-size: 100rem;
+    }
+
+    &[size="some"] {
+      --wrapper-size: 81.25rem;
+    }
+
+    &[size="more"] {
+      --wrapper-size: 68.75rem;
+    }
+
+    &[size="most"] {
+      --wrapper-size: 41.5rem;
+    }
+
+    &[content-padding~="block"] {
+      padding-block: var(--space-m);
+    }
+
+    &[content-padding~="inline"] {
+      padding-inline: var(--space-s);
+    }
+  }
+
+  fluid-grid {
+    --grid-layout-gap: var(--space-m);
+    --grid-column-count: 4;
+    --grid-item--min-width: 150px;
+
+    --gap-count: calc(var(--grid-column-count) - 1);
+    --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+    --grid-item--max-width: calc(
+      (100% - var(--total-gap-width)) / var(--grid-column-count)
+    );
+
+    display: grid;
+    gap: var(--grid-layout-gap);
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+    );
+
+    &[columns="2"] {
+      --grid-column-count: 2;
+    }
+
+    &[columns="3"] {
+      --grid-column-count: 3;
+    }
+
+    &[columns="5"] {
+      --grid-column-count: 5;
+    }
+
+    &[columns*="auto"] {
+      grid-template-columns: repeat(
+        var(--fluid-type),
+        minmax(var(--grid-item--min-width), 1fr)
+      );
+    }
+
+    &[columns="auto-fill"] {
+      --fluid-type: auto-fill;
+    }
+
+    &[columns="auto-fit"] {
+      --fluid-type: auto-fit;
+    }
+  }
+
+  flex-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+}
+
+@layer animations {
+  @keyframes rainbow {
+    from {
+      filter: hue-rotate(0deg);
+    }
+
+    to {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  .rainbow:is(:hover, :focus-visible) {
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    animation-name: rainbow;
+  }
+}
+
+@layer utilities {
+  /* Create equal spacing between elements in a flow context without setting display */
+  .flow > * + * {
+    margin-block-start: var(--flow-space, 1em);
+  }
+
+  .stack > * + * {
+    margin-block-start: 2rem;
+  }
+
+  .prose :is(h1, h2, h3, h4, h5, h6, p) {
+    max-inline-size: 70ch;
+  }
+
+  .font-italic {
+    font-style: italic;
+  }
+
+  .font-light {
+    font-weight: 300;
+  }
+
+  .font-lighter {
+    font-weight: 200;
+  }
+
+  .font-bold {
+    font-weight: 700;
+  }
+
+  [class*="font-step"] {
+    font-size: var(--font-step);
+  }
+
+  .font-step-5 {
+    --font-step: var(--step-5);
+  }
+
+  .font-step-4 {
+    --font-step: var(--step-4);
+  }
+
+  .font-step-3 {
+    --font-step: var(--step-3);
+  }
+
+  .font-step-2 {
+    --font-step: var(--step-2);
+  }
+
+  .font-step-1 {
+    --font-step: var(--step-1);
+  }
+
+  .font-step-0 {
+    --font-step: var(--step-0);
+  }
+
+  .font-step--1 {
+    --font-step: var(--step--1);
+  }
+
+  .font-step--2 {
+    --font-step: var(--step--2);
+  }
+
+  .color-reverse {
+    background-color: var(--foreground);
+    color: var(--background);
+
+    a {
+      color: var(--light);
+    }
+  }
+}
