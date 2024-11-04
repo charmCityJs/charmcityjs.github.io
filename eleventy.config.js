@@ -7,6 +7,8 @@ export default function (config) {
     dir: {
       input: "src",
       layouts: "_includes/layouts",
+      // for gh-pages
+      output: "docs",
     },
   };
 }
