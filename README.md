@@ -7,7 +7,7 @@ The CCJS website.
 This site is built with [Eleventy](https://11ty.dev).
 
 - Start a development server with `npm start`.
-- Deploy to GitHub pages with `npm run deploy`.
+- Update the GitHub pages with `npm run build` and pushing the updated `/docs/` directory.
 
 Content is organized in two directories: `public` and `src`.
 
