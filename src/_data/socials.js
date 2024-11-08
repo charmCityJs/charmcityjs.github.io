@@ -8,5 +8,4 @@ class SocialMedia {
 export default [
   new SocialMedia("Mastodon", "https://mastodon.social/@charmcityjs"),
   new SocialMedia("Instagram", "https://instagram.com/charmcityjs"),
-  new SocialMedia("X", "https://x.com/charmcityjs"),
 ];
